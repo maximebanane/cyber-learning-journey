@@ -20,3 +20,5 @@ My goal is to become a cloud security / DevOps engineer by gaining practical ski
 
 ## Goal
 Build a strong portfolio and move into cloud / cloud security roles.
+
+This repository is my learning journal.
