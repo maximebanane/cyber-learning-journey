@@ -1,0 +1,45 @@
+# TryHackMe - Linux Fundamentals Part 1
+
+## Overview
+Completed the TryHackMe room "Linux Fundamentals Part 1".
+
+This room introduced the basics of Linux navigation, file management, and searching from the command line. It provided hands-on practice with essential commands used daily in cybersecurity and system administration. :contentReference[oaicite:0]{index=0}
+
+## Skills Learned
+
+### Basic Commands
+- `whoami`
+- `echo`
+
+### Filesystem Navigation
+- `pwd` (Print Working Directory)
+- `ls` (List files and directories)
+- `cd` (Change Directory)
+- `cat` (Display file contents)
+
+### File Searching
+- `find`
+- `grep`
+- `grep -R` (Recursive search)
+
+## Examples
+
+```bash
+pwd
+ls
+cd Documents
+cat notes.txt
+find -name passwords.txt
+grep "admin" access.log
+grep -R "PRETTY_NAME" /etc/
+Key Takeaways
+Navigating the Linux filesystem efficiently.
+Reading and locating files from the terminal.
+Searching for files and specific content.
+Understanding the importance of the command line in cybersecurity.
+Platform
+TryHackMe
+Learning Path: Pre Security / Linux Fundamentals
+Status
+
+✅ Completed
