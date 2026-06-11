@@ -6,6 +6,7 @@ Today I explored the fundamental concepts behind modern IT infrastructures, incl
 These topics provide the foundation for Cloud Engineering, DevOps, and Cybersecurity careers.
 
 💻 Rooms Completed
+
 🖥️ Computer Types
 
 What I learned
@@ -18,6 +19,8 @@ How hardware requirements vary depending on workloads
 
 Companies use dedicated servers to host websites, applications, and databases.
 Cloud providers operate thousands of physical servers inside large-scale data centers.
+
+
 🌐 Client-Server Basics
 
 What I learned
@@ -35,6 +38,8 @@ Modern applications such as Netflix, Spotify, and Amazon rely on this architectu
 Example Flow
 
 User → Browser → Web Server → Database → Response
+
+
 🖥️ Virtualisation Basics
 
 What I learned
@@ -49,6 +54,8 @@ Resource allocation and isolation
 Cloud providers use virtualization to host multiple virtual machines on the same physical hardware.
 AWS EC2 instances are built on virtualized infrastructure.
 Companies create development and testing environments without purchasing additional servers.
+
+
 ☁️ Cloud Computing Fundamentals
 
 What I learned
@@ -70,6 +77,8 @@ Service Model	Example
 IaaS	AWS EC2
 PaaS	Heroku
 SaaS	Google Workspace
+
+
 ⚙️ Operating Systems: Introduction
 
 What I learned
