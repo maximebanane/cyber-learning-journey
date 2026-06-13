@@ -1,0 +1,163 @@
+🐧 TryHackMe — Linux Fundamentals (Part 2 & 3)
+📚 Notes + applications monde réel
+📌 PART 2 — Fondamentaux système & administration
+🔐 SSH (accès distant)
+ssh user@ip
+💡 À quoi ça sert vraiment :
+Se connecter à un serveur AWS / VPS / VM Linux
+Administration de serveurs cloud (EC2, Azure VM, etc.)
+Debug d’incidents en prod
+⚙️ Exemple réel :
+ssh ubuntu@54.23.xxx.xxx
+
+👉 En entreprise : 90% des serveurs Linux sont gérés comme ça.
+
+📂 Navigation Linux (structure système)
+pwd
+ls -lh
+cd /etc
+💡 logique réelle :
+
+Linux = système basé sur fichiers
+
+/etc → configuration système (nginx, ssh, users)
+/var/log → logs serveurs
+/home → utilisateurs
+/usr → programmes installés
+
+👉 En cloud :
+Quand un serveur bug → tu explores /var/log
+
+📄 Manipulation de fichiers
+touch file.txt
+cp file1 file2
+mv file1 /tmp/
+rm file
+💡 usage réel :
+déplacer logs
+backup config
+gérer fichiers de déploiement
+scripts d’automatisation
+🔍 Recherche de fichiers
+find / -name "config.yaml"
+💡 monde réel :
+retrouver config cassée
+chercher clé API oubliée
+audit sécurité (fichiers sensibles)
+🔐 Permissions Linux (TRÈS IMPORTANT)
+ls -l
+chmod 755 script.sh
+Exemple :
+-rwxr-xr--
+💡 réel :
+sécurité serveur
+empêcher accès fichiers sensibles
+config web servers
+
+👉 Cas concret :
+
+clé privée SSH → chmod 600
+script deploy → chmod +x
+👤 Utilisateurs & privilèges
+whoami
+sudo -l
+su root
+💡 réel :
+contrôle accès admin
+principe du moindre privilège (cyber)
+escalade de privilèges en pentest
+
+👉 En entreprise :
+tu n’es JAMAIS root direct
+
+📌 PART 3 — outils système & automatisation
+✍️ Éditeurs (nano / vim)
+nano file.txt
+vim file.txt
+💡 réel :
+modifier config serveur
+éditer nginx / apache / docker configs
+debug rapide en SSH
+
+👉 nano = simple
+👉 vim = utilisé par sysadmins / devops
+
+🌐 Téléchargement & API
+wget url
+curl url
+💡 réel :
+tester API backend
+télécharger scripts install
+debug microservices
+
+Exemple :
+
+curl https://api.openai.com/v1/models
+🔎 grep (très utilisé en prod)
+grep "error" /var/log/syslog
+💡 réel :
+analyser logs crash serveur
+trouver erreurs backend
+monitoring incident
+
+👉 C’est UNE des commandes les plus utilisées en production.
+
+⚙️ Processus (gestion système)
+ps aux
+top
+kill PID
+💡 réel :
+identifier process qui consomme CPU
+tuer service bloqué
+debug serveur en production
+
+Exemple :
+
+serveur web freeze → kill nginx/apache worker
+⏱️ Cron (automatisation)
+crontab -e
+
+Exemple :
+
+0 2 * * * /home/user/backup.sh
+💡 réel :
+backup base de données
+nettoyage logs
+scripts AWS / infra
+scraping / jobs automatiques
+
+👉 DevOps = énormément de cron + systemd timers
+
+📦 Gestion de paquets
+sudo apt update
+sudo apt install nginx
+💡 réel :
+installer serveur web
+installer tools devops
+patch sécurité
+
+Exemple :
+
+installer Docker, Node, Python, Nginx
+📜 Logs (ULTRA IMPORTANT)
+/var/log/syslog
+tail -f /var/log/syslog
+💡 réel :
+debug prod
+comprendre crash serveur
+audit sécurité
+
+Exemples :
+
+site down → logs nginx
+app crash → logs backend
+intrusion → logs auth
+🚀 CONCEPTS CLÉS À RETENIR
+🧠 Linux en vrai c’est :
+🔐 SSH → accès serveur
+📁 fichiers = système entier
+⚙️ processus = apps en cours
+📜 logs = diagnostic
+🔒 permissions = sécurité
+⏱️ cron = automatisation
+📦 apt = installation infra
