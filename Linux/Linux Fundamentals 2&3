@@ -1,163 +1,160 @@
 🐧 TryHackMe — Linux Fundamentals (Part 2 & 3)
-📚 Notes + applications monde réel
-📌 PART 2 — Fondamentaux système & administration
-🔐 SSH (accès distant)
+📚 Notes + Real-World Applications
+📌 PART 2 — System Basics & Administration
+🔐 SSH (Remote Access)
 ssh user@ip
-💡 À quoi ça sert vraiment :
-Se connecter à un serveur AWS / VPS / VM Linux
-Administration de serveurs cloud (EC2, Azure VM, etc.)
-Debug d’incidents en prod
-⚙️ Exemple réel :
+💡 Real-world use:
+Connect to remote Linux servers (AWS EC2, VPS, cloud VMs)
+Server administration in production
+Debugging live systems
+⚙️ Example:
 ssh ubuntu@54.23.xxx.xxx
 
-👉 En entreprise : 90% des serveurs Linux sont gérés comme ça.
+👉 In real companies, most Linux servers are accessed this way.
 
-📂 Navigation Linux (structure système)
+📂 Linux File System Navigation
 pwd
 ls -lh
 cd /etc
-💡 logique réelle :
+💡 Real-world meaning:
 
-Linux = système basé sur fichiers
+Linux is a file-based system, everything is organized as files.
 
-/etc → configuration système (nginx, ssh, users)
-/var/log → logs serveurs
-/home → utilisateurs
-/usr → programmes installés
+Important directories:
 
-👉 En cloud :
-Quand un serveur bug → tu explores /var/log
+/etc → system configuration (SSH, nginx, users)
+/var/log → system logs
+/home → user directories
+/usr → installed applications
 
-📄 Manipulation de fichiers
+👉 In cloud environments, most debugging starts in /var/log.
+
+📄 File Management
 touch file.txt
 cp file1 file2
 mv file1 /tmp/
-rm file
-💡 usage réel :
-déplacer logs
-backup config
-gérer fichiers de déploiement
-scripts d’automatisation
-🔍 Recherche de fichiers
+rm file.txt
+💡 Real-world use:
+Moving configuration files
+Managing deployment scripts
+Handling logs and backups
+🔍 Searching Files
 find / -name "config.yaml"
-💡 monde réel :
-retrouver config cassée
-chercher clé API oubliée
-audit sécurité (fichiers sensibles)
-🔐 Permissions Linux (TRÈS IMPORTANT)
+💡 Real-world use:
+Finding lost configuration files
+Searching secrets or API keys
+Security audits
+🔐 Linux Permissions (VERY IMPORTANT)
 ls -l
 chmod 755 script.sh
-Exemple :
+
+Example:
+
 -rwxr-xr--
-💡 réel :
-sécurité serveur
-empêcher accès fichiers sensibles
-config web servers
+Meaning:
+r = read
+w = write
+x = execute
+💡 Real-world use:
+Server security control
+Protecting sensitive files (SSH keys, configs)
+Web server access rules
 
-👉 Cas concret :
+👉 Example:
 
-clé privée SSH → chmod 600
-script deploy → chmod +x
-👤 Utilisateurs & privilèges
+Private SSH key → chmod 600
+Deploy script → chmod +x
+👤 Users & Privileges
 whoami
 sudo -l
 su root
-💡 réel :
-contrôle accès admin
-principe du moindre privilège (cyber)
-escalade de privilèges en pentest
+💡 Real-world use:
+Managing access control
+Principle of least privilege (cybersecurity)
+Privilege escalation testing (pentesting)
 
-👉 En entreprise :
-tu n’es JAMAIS root direct
+👉 In production: users are NEVER root by default.
 
-📌 PART 3 — outils système & automatisation
-✍️ Éditeurs (nano / vim)
+📌 PART 3 — System Tools & Automation
+✍️ Text Editors (nano / vim)
 nano file.txt
 vim file.txt
-💡 réel :
-modifier config serveur
-éditer nginx / apache / docker configs
-debug rapide en SSH
+💡 Real-world use:
+Editing server configs (nginx, apache, ssh)
+Quick fixes on remote machines
+DevOps debugging via SSH
 
 👉 nano = simple
-👉 vim = utilisé par sysadmins / devops
+👉 vim = professional / sysadmin standard
 
-🌐 Téléchargement & API
+🌐 Downloading & APIs
 wget url
 curl url
-💡 réel :
-tester API backend
-télécharger scripts install
-debug microservices
+💡 Real-world use:
+Download scripts or installers
+Test APIs
+Debug backend services
 
-Exemple :
+Example:
 
-curl https://api.openai.com/v1/models
-🔎 grep (très utilisé en prod)
+curl https://api.example.com/status
+🔎 Searching Inside Files (grep)
 grep "error" /var/log/syslog
-💡 réel :
-analyser logs crash serveur
-trouver erreurs backend
-monitoring incident
+💡 Real-world use:
+Debug production issues
+Analyze logs
+Find failures in applications
 
-👉 C’est UNE des commandes les plus utilisées en production.
+👉 One of the MOST used commands in production systems.
 
-⚙️ Processus (gestion système)
+⚙️ Processes Management
 ps aux
 top
 kill PID
-💡 réel :
-identifier process qui consomme CPU
-tuer service bloqué
-debug serveur en production
-
-Exemple :
-
-serveur web freeze → kill nginx/apache worker
-⏱️ Cron (automatisation)
+kill -9 PID
+💡 Real-world use:
+Identify CPU/memory-heavy processes
+Kill stuck services
+Debug server crashes
+⏱️ Automation (Cron Jobs)
 crontab -e
 
-Exemple :
+Example:
 
 0 2 * * * /home/user/backup.sh
-💡 réel :
-backup base de données
-nettoyage logs
-scripts AWS / infra
-scraping / jobs automatiques
+💡 Real-world use:
+Automated backups
+Log cleanup
+Scheduled scripts (DevOps workflows)
 
-👉 DevOps = énormément de cron + systemd timers
+👉 Core concept in DevOps automation.
 
-📦 Gestion de paquets
+📦 Package Management (APT)
 sudo apt update
 sudo apt install nginx
-💡 réel :
-installer serveur web
-installer tools devops
-patch sécurité
-
-Exemple :
-
-installer Docker, Node, Python, Nginx
-📜 Logs (ULTRA IMPORTANT)
+💡 Real-world use:
+Installing servers (web, database, tools)
+Security updates / patches
+Setting up environments
+📜 Logs (Critical for Debugging)
 /var/log/syslog
 tail -f /var/log/syslog
-💡 réel :
-debug prod
-comprendre crash serveur
-audit sécurité
+💡 Real-world use:
+Debug server crashes
+Monitor applications
+Security incident investigation
 
-Exemples :
+Examples:
 
-site down → logs nginx
-app crash → logs backend
-intrusion → logs auth
-🚀 CONCEPTS CLÉS À RETENIR
-🧠 Linux en vrai c’est :
-🔐 SSH → accès serveur
-📁 fichiers = système entier
-⚙️ processus = apps en cours
-📜 logs = diagnostic
-🔒 permissions = sécurité
-⏱️ cron = automatisation
-📦 apt = installation infra
+Website down → check nginx logs
+App crash → backend logs
+Intrusion detection → auth logs
+🚀 KEY TAKEAWAYS
+🧠 Linux in real life =
+🔐 SSH → server access
+📁 Files → system structure
+⚙️ Processes → running services
+📜 Logs → debugging source
+🔒 Permissions → security model
+⏱️ Cron → automation
+📦 APT → software installation
